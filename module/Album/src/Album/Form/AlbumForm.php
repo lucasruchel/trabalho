@@ -46,7 +46,7 @@ class AlbumForm extends Form{
             'attributes' => array(
                 'value' => 'Go',
                 'id' => 'botao',
-                'class' => 'btn btn-default btn-file',
+                'class' => 'btn btn-default',
             )
         ));
         

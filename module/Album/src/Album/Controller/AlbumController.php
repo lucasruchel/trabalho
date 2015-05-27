@@ -62,9 +62,8 @@ class AlbumController extends AbstractActionController
                   // $adapter->setValidator($album->file['name']);
                    
                    
-                   
                    if($adapter->isvalid()){
-                      $adapter->setDestination('/var/www/zend/projeto/public/img/');
+                      $adapter->setDestination(getcwd().'/public/img/');
                        $adapter->receive($album->file['name']);
                        $album->file = 'img/' . $album->file['name'];
 
@@ -127,7 +126,7 @@ class AlbumController extends AbstractActionController
                    
                    
                    if($adapter->isvalid()){
-                      $adapter->setDestination('/var/www/zend/projeto/public/img/');
+                       $adapter->setDestination(getcwd().'/public/img/');
                        $adapter->receive($album->file['name']);
                        $album->file = 'img/' . $album->file['name'];
 
