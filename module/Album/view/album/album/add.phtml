@@ -1,0 +1,40 @@
+
+<script> 
+    $('input[type=file]').bootstrapFileInput();
+    $('.file-inputs').bootstrapFileInput();
+</script>
+<?php
+ // module/Album/view/album/album/add.phtml:
+
+ $title = 'Add new album';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form->setAttribute('action', $this->url('album', array('action' => 'add')));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+// echo $this->formHidden($form->get('id'));
+//echo $this->formRow($form->get('title'));
+// echo $this->formRow($form->get('artist'));
+// echo $this->formRow($form->get('file'));
+// echo $this->formSubmit($form->get('submit'));
+ echo '<div class="input-group">';
+ 
+ foreach($form as $element){
+     echo '<div class="form-group">';
+     echo '<label for="'.$element->getAttribute('name').'">'.$element->getLabel().'</label>';
+     echo $this->formElement($element);
+     echo $this->formElementErrors($element);
+     echo '</div>';
+ }
+ 
+ echo '<div class="btn btn-default btn-file">';
+     echo '<label for="'.$element->getAttribute('name').'">'.$element->getLabel().'</label>';
+     echo $this->formElement($element);
+     echo $this->formElementErrors($element);
+ echo '</div>';
+ 
+ echo '</div>';
+ echo $this->form()->closeTag();

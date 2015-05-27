@@ -1,0 +1,42 @@
+<?php
+ // module/Album/view/album/album/delete.phtml:
+
+ $title = $this->translate('Edit album');
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php 
+ $form->prepare();
+ $form = $this->form;
+ $form->setAttribute('action', $this->url(
+     'album',
+     array(
+         'action' => 'edit',
+         'id'     => $this->id,
+     )
+ ));
+ //$form->prepare();
+
+ echo $this->form()->openTag($form);
+ /*echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('title'));
+ echo $this->formRow($form->get('artist'));
+ echo $this->formRow($form->get('file'));
+ echo $this->formSubmit($form->get('submit'));*/
+ foreach ($form as $element) {
+ 	echo '<div class = "form-group">';
+
+ 	echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+ 	echo $this->formElement($element);
+ 	echo $this->formElementErrors($element);
+
+if(strpos($this->formElement($element), "submit") ){
+echo '<a class = "btn-cancel btn btn-primary btn-lg" href="' . $this->url('album',
+
+                                array('action'=>'index')) . '">' . $this->translate('Cancel') . '</a>';
+}
+echo '</div>';
+ }
+ echo $this->form()->closeTag();
+ ?>

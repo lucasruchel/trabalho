@@ -1,0 +1,57 @@
+<?php
+ // module/Album/view/album/album/index.phtml:
+ $title = 'My albums';
+ $this->headTitle($title);
+?>
+       
+<div class="row">
+    <div class="col-md-12">
+        <div class="templatemo_logo">
+            <h1><?php echo $this->escapeHtml($title); ?></h1>     
+            <p>
+                <a id="btn_add_new" href="<?php echo $this->url('album', array('action'=>'add'));?>"> <?php echo $this->translate('Add new album') ?></a>
+                
+            </p>
+        </div>
+    </div>
+</div>
+ <table class="table">
+            
+                  <div id="menu-container">
+                    <div id="menu-1" class="homepage">
+                        <div class="row">     
+            <?php foreach ($albums as $album) : ?>
+                            
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                <a id="btn_edit" href="<?php echo $this->url('album',
+                                            array('action'=>'edit', 'id' => $album->id));?>"> <?php echo $this->translate('Edit');?> </a>
+                                
+                                <a id="btn_del" href="<?php echo $this->url('album',
+                                            array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
+                                
+                                <a id="btn_list" href="<?php echo $this->url('album',
+                                            array('action'=>'addMusica', 'id' => $album->id));?>"> <?php echo $this->translate('List');?> </a>
+                                  
+                                <div class="portfolio-item">
+                                    <?php echo 'Musica: ',$this->escapeHtml($album->title);?>
+                                    <?php echo 'Artista: ',$this->escapeHtml($album->artist);?>
+                                    
+                                    <a class="fancybox" href="<?php echo $album->file;?>">
+                                            <?php
+                                                if (is_null($album->file)){
+                                                    $album->file = '../img/default.png';
+                                                }
+                                            ?>
+                                            <img src="../<?php echo $album->file;?>" >
+                                    </a>
+                                </div> 
+                                     
+                            </div>
+                       
+    <?php endforeach; ?>
+                             </div> 
+                    </div> 
+                </div>
+            
+                    
+ </table>
