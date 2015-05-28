@@ -61,6 +61,8 @@ class AlbumController extends AbstractActionController
                    
                   // $adapter->setValidator($album->file['name']);
                    
+                   $adapter->addValidator('Extension',false,'jpg,jpeg,png,gif');
+                   $adapter->addValidator('IsImage',true);
                    
                    if($adapter->isvalid()){
                       $adapter->setDestination(getcwd().'/public/img/');
@@ -122,7 +124,8 @@ class AlbumController extends AbstractActionController
                    $adapter = new \Zend\File\Transfer\Adapter\Http();
                    
                   // $adapter->setValidator($album->file['name']);
-                   
+                  $adapter->addValidator('Extension',false,'jpg,jpeg,png,gif');
+                  $adapter->addValidator('IsImage',true); 
                    
                    
                    if($adapter->isvalid()){
