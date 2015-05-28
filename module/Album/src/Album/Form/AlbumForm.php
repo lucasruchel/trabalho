@@ -10,6 +10,9 @@ class AlbumForm extends Form{
         $this->add(array(
             'name' => 'id',
             'type' => 'hidden',
+            'options' => array(
+                'label' => '',
+              )
         ));
         
         $this->add(array(
@@ -47,7 +50,10 @@ class AlbumForm extends Form{
                 'value' => 'Go',
                 'id' => 'botao',
                 'class' => 'btn btn-default',
-            )
+            ),
+            'options' => array(
+                'label' => '',
+             )
         ));
         
     }

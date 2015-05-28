@@ -8,6 +8,7 @@
 
 namespace Album\Model;
 use Zend\Db\TableGateway\TableGateway;
+use \Zend\Db\Sql\Select;
 
 class AlbumTable{
      protected $tg;
@@ -16,9 +17,13 @@ class AlbumTable{
      {
          $this->tg = $tableGateway;
      }
-     public function fetchAll()
+     public function fetchAll($currentPage=1,$countPerPage=6)
      {
-         $resultSet = $this->tg->select();
+         $select = new Select();
+         
+         
+         $select->from($this->tg)->order('id');
+         
          return $resultSet;
      }
      

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".testes").fancybox({
+    $(".fancybox").fancybox({
     	helpers : {
     		title : {
     			type : 'over'
