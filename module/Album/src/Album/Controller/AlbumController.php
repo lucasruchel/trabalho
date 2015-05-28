@@ -64,6 +64,7 @@ class AlbumController extends AbstractActionController
                    $adapter->addValidator('Extension',false,'jpg,jpeg,png,gif');
                    $adapter->addValidator('IsImage',true);
                    
+                   
                    if($adapter->isvalid()){
                       $adapter->setDestination(getcwd().'/public/img/');
                        $adapter->receive($album->file['name']);

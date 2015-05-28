@@ -38,7 +38,8 @@ class AlbumForm extends Form{
                 'type' => 'file',
                 'options' => array(
                     'label' => 'Image',
-            ),'attributes'=>array(
+            )
+            ,'attributes'=>array(
                 'class'=>'file-inputs',
             )
         ));

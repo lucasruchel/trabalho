@@ -24,18 +24,18 @@
                     <div id="menu-1" class="homepage">
                         <div class="row">     
             <?php foreach ($albums as $album) : ?>
-                            
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <a id="btn_edit" class="btn btn-primary" href="<?php echo $this->url('album',
-                                            array('action'=>'edit', 'id' => $album->id));?>"> <?php echo $this->translate('Edit');?> </a>
-                                
-                                <a id="btn_del" class="btn btn-danger" href="<?php echo $this->url('album',
-                                            array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
-                                
-                                <a id="btn_list" class="btn" href="<?php echo $this->url('album',
-                                            array('action'=>'addMusica', 'id' => $album->id));?>"> <?php echo $this->translate('List');?> </a>
-                                  
-                                <div class="portfolio-item">
+                            <div class="col-md-4 col-sm-6 col-xs-12 portifolio">
+                                <div class="row">
+                                    <a id="btn_edit" class="btn btn-primary" href="<?php echo $this->url('album',
+                                                array('action'=>'edit', 'id' => $album->id));?>"> <?php echo $this->translate('Edit');?> </a>
+
+                                    <a id="btn_del" class="btn btn-danger" href="<?php echo $this->url('album',
+                                                array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
+
+                                    <a id="btn_list" class="btn btn-warning" href="<?php echo $this->url('album',
+                                                array('action'=>'addMusica', 'id' => $album->id));?>"> <?php echo $this->translate('List');?> </a>
+                                </div>    
+                                <div class=" row portfolio-item">
                                     <?php echo 'Musica: ',$this->escapeHtml($album->title);?>
                                     <?php echo 'Artista: ',$this->escapeHtml($album->artist);?>
                                     
@@ -43,10 +43,10 @@
                                             <img src="<?php echo $album->file;?>" >
                                     </a>
                                 </div> 
-                                     
-                            </div>
+                            
+                </div>
                        
-    <?php endforeach; ?>
+            <?php endforeach; ?>
                              </div> 
                     </div> 
                 </div>
