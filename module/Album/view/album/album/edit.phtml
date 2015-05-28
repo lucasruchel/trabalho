@@ -25,9 +25,19 @@
  foreach ($form as $element) {
  	echo '<div class = "form-group">';
 
- 	echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
- 	echo $this->formElement($element);
- 	echo $this->formElementErrors($element);
+ 	 if(strpos($this->formElement($element), "file") )
+        {
+                echo '<span class="btn btn-success fileinput-button">';
+                echo '<i class="glyphicon glyphicon-plus"></i>';
+                echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+                echo $this->formElement($element);
+                echo '</span>';
+        }
+            else
+        {
+            echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+            echo $this->formElement($element);
+        }
 
         if(strpos($this->formElement($element), "submit") ){
             echo '<a class = "btn-cancel btn btn-primary " href="' . $this->url('album',array('action'=>'index')) . '">' . $this->translate('Cancel') . '</a>';

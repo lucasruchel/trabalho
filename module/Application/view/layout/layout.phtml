@@ -78,13 +78,25 @@
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
-        <div class="container">
-            <?php echo $this->content; ?>
-            <hr>
-            <footer>
-                <p> Desenvolvido usando Zend por JSCodeGroup</p>
-            </footer>
-        </div> <!-- /container -->
+        <div>
+            <div class="container">
+                <?php echo $this->content; ?>
+            </div>
+                
+            
+        </div>
+            
+            
+        <footer class="footer">
+            <div class="container">
+                Desenvolvido usando Zend por JSCodeGroup
+            </div>
+            
+        </footer>
+        
+                
+
+            
         
         <?php echo $this->inlineScript() ?>
     </body>

@@ -37,7 +37,7 @@ class AlbumForm extends Form{
                 'name' => 'file',
                 'type' => 'file',
                 'options' => array(
-                    'label' => 'Image',
+                    'label' => 'Adicione uma Imagem',
             )
             ,'attributes'=>array(
                 'class'=>'file-inputs',

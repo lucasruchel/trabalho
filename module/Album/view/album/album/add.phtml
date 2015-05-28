@@ -1,13 +1,11 @@
-
-<script> 
-    $('input[type=file]').bootstrapFileInput();
-    $('.file-inputs').bootstrapFileInput();
-</script>
 <?php
  // module/Album/view/album/album/add.phtml:
 
  $title = $this->translate('Add new album');
  $this->headTitle($title);
+ 
+ echo '<div class="container">'; 
+
  ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
  <?php
@@ -18,9 +16,25 @@
 
  foreach($form as $element){
         echo '<div class="form-group">';
-        echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
-        echo $this->formElement($element);
-        echo $this->formElementErrors($element);
+        
+        if(strpos($this->formElement($element), "file") )
+        {
+                echo '<span class="btn btn-success fileinput-button">';
+                echo '<i class="glyphicon glyphicon-plus"></i>';
+                echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+                echo $this->formElement($element);
+                echo '</span>';
+        }
+            else
+        {
+            echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+            echo $this->formElement($element);
+        }
+        echo $this->formElementErrors($element,array('message' => $this->translate("errormessage")));
+        
+        if(strpos($this->formElement($element), "submit") ){
+            echo '<a class = "btn-cancel btn btn-primary " href="' . $this->url('album',array('action'=>'index')) . '">' . $this->translate('Cancel') . '</a>';
+        }
         echo '</div>';
      
  }
@@ -29,3 +43,5 @@
  
  
  echo $this->form()->closeTag();
+ 
+ echo '</div>';

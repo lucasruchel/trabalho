@@ -1,21 +1,24 @@
 <?php
- // module/Album/view/album/album/index.phtml:
+ 
  $title = 'My albums';
  $this->headTitle($title);
 ?>
-       
+ 
 <div class="row">
     <div class="col-md-12">
-        <div class="">
-            <h1><?php echo $this->escapeHtml($title); ?></h1>     
-            <span class="label label-primary">
-                <strong>
-                    <a href="<?php echo $this->url('album', array('action'=>'add'));?>"> <?php echo $this->translate('Add new album') ?></a>
-                </strong>
-                
-            </span>
+        <div class="jumbotron">
+            <div class="container">
+                <h1><?php echo $this->escapeHtml($this->translate($title)); ?></h1>     
+                <span class="btn btn-default">
+                    <strong>
+                        <a href="<?php echo $this->url('album', array('action'=>'add'));?>"> <?php echo $this->translate('Add new album') ?></a>
+                    </strong>
 
+                </span>
+
+            </div>
         </div>
+        
     </div>
 </div>
  <table class="table">
