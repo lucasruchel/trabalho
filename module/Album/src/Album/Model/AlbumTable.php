@@ -8,7 +8,10 @@
 
 namespace Album\Model;
 use Zend\Db\TableGateway\TableGateway;
-use \Zend\Db\Sql\Select;
+use Zend\Db\Sql\Select;
+use Zend\Paginator\Adapter\DbSelect;
+use Zend\Paginator\Paginator;
+use Zend\Db\ResultSet\ResultSet;
 class AlbumTable{
      protected $tg;
 
@@ -16,13 +19,37 @@ class AlbumTable{
      {
          $this->tg = $tableGateway;
      }
-     public function fetchAll($currentPage=1,$countPerPage=6)
-     {
-         //$select = new \Zend\Db\Sql\Select
-         
-         $resultSet = $this->tg->select();
-         return $resultSet;
-     }
+//     public function fetchAll($currentPage=1,$countPerPage=6)
+//     {
+//         //$select = new \Zend\Db\Sql\Select
+//         
+//         $resultSet = $this->tg->select();
+//         return $resultSet;
+//     }
+       public function fetchAll($pagination=false,$currentPage=1,$countPerPage=2){
+           
+           if ($pagination)
+           {
+                $select = new Select('album');
+                $select->order('id');
+                
+
+                $resultSetPrototype = new ResultSet();
+                $resultSetPrototype->setArrayObjectPrototype(new Album());
+
+                $paginatorAdapter = new DbSelect(
+                             $select,
+                             $this->tg->getAdapter(),
+                             $resultSetPrototype
+                        );
+                $paginator = new Paginator($paginatorAdapter);
+                return $paginator;
+           }
+           
+           $resultSet = $this->tg->select();
+           return $resultSet;
+           
+       }
      
      public function getAlbum($id){
           $id  = (int) $id;
