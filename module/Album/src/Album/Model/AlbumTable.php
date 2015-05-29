@@ -74,7 +74,12 @@ class AlbumTable{
              $this->tg->insert($data);
          } else {
              if ($this->getAlbum($id)) {
-                 $this->tg->update($data, array('id' => $id));
+                    if($data['file']=="")
+                        $data['file'] = $this->getAlbum($id)->file;
+//                    \Zend\Debug\Debug::dump($this->getAlbum($id)->file);
+//                    \Zend\Debug\Debug::dump($data);
+//                    exit();
+                $this->tg->update($data, array('id' => $id));
              } else {
                  throw new \Exception('Album id does not exist');
              }

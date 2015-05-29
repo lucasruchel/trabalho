@@ -144,7 +144,7 @@ class AlbumController extends AbstractActionController
                        $album->file = 'img/' . $album->file['name'];
 
                    }else{
-                       $album->file = 'img/default.png';
+                       $album->file = '';
                    }
                    
                    
