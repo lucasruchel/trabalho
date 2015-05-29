@@ -27,6 +27,8 @@
 
  	 if(strpos($this->formElement($element), "file") )
         {
+                echo '<img class="img-responsive" src="../../'.$this->img.'" alt="album imagem">';
+             
                 echo '<span class="btn btn-success fileinput-button">';
                 echo '<i class="glyphicon glyphicon-plus"></i>';
                 echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
@@ -44,5 +46,7 @@
         }
         echo '</div>';
  }
+ 
  echo $this->form()->closeTag();
+ 
  ?>

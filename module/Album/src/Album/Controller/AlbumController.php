@@ -28,7 +28,7 @@ class AlbumController extends AbstractActionController
     {
         $paginator = $this->getAlbumTable()->fetchAll(true);
         $paginator->setCurrentPageNumber(0);
-        $paginator->setItemCountPerPage(10);
+        $paginator->setItemCountPerPage(6);
         
         
                 
@@ -89,7 +89,9 @@ class AlbumController extends AbstractActionController
                    return $this->redirect()->toRoute('album');
                }
            }
-           return array('form' => $form);
+           return array(
+                    'form' => $form
+                   );
        }
 
     public function editAction()
@@ -159,6 +161,7 @@ class AlbumController extends AbstractActionController
     return array(
                'id' => $id,
                'form' => $form,
+               'img' => $album->file,
            );
        }
 
