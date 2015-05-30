@@ -26,7 +26,7 @@ class AlbumTable{
 //         $resultSet = $this->tg->select();
 //         return $resultSet;
 //     }
-       public function fetchAll($pagination=false,$currentPage=1,$countPerPage=2){
+       public function fetchAll($pagination=false,$currentPage=0,$countPerPage=6){
            
            if ($pagination)
            {

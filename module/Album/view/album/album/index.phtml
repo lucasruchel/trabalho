@@ -34,9 +34,6 @@
 
                                     <a id="btn_del" class="btn btn-danger" href="<?php echo $this->url('album',
                                                 array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
-
-                                    <a id="btn_list" class="btn btn-warning" href="<?php echo $this->url('album',
-                                                array('action'=>'addMusica', 'id' => $album->id));?>"> <?php echo $this->translate('List');?> </a>
                                 </div>    
                                 <div class=" row portfolio-item">
                                     <?php echo 'Musica: ',$this->escapeHtml($album->title);?>

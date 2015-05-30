@@ -27,8 +27,13 @@
 
  	 if(strpos($this->formElement($element), "file") )
         {
-                echo '<img class="img-responsive" src="'.$this->url($this->route).'/../'.$this->img.'" alt="album imagem">';
              
+                echo '<a class="fancybox" href="'.$this->url($this->route).'/../'.$this->img.'">';
+                    echo '<img class="portfolio-item" src="'.$this->url($this->route).'/../'.$this->img.'" alt="album imagem">';
+                echo '</a>';
+                
+        
+                
                 echo '<span class="btn btn-success fileinput-button">';
                 echo '<i class="glyphicon glyphicon-plus"></i>';
                 echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
