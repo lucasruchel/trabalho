@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Dosis', serif; color: white; }
 
 .content { display: none; }
 
-.page-header { padding: 20px 30px; margin: 0; border-bottom: 1px solid #a71e2b; }
+.page-header { padding: 20px 30px; margin: 0; border-bottom: none; }
 
 .page-title { font-size: 20px; text-transform: uppercase; margin: 0; }
 

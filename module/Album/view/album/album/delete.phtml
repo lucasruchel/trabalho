@@ -1,28 +1,50 @@
 <?php
  // module/Album/view/album/album/delete.phtml:
 
- $title = 'Delete album';
+ $title = $this->translate('Delete album');
  $this->headTitle($title);
  ?>
- <h1><?php echo $this->escapeHtml($title); ?></h1>
-
- <p>Are you sure that you want to delete
-     '<?php echo $this->escapeHtml($album->title); ?>' by
-     '<?php echo $this->escapeHtml($album->artist); ?>'?
- </p>
- <?php
+<div class="page-header">
+    <div>
+        
+    </div>
+    
+    <div class="jumbotron ">
+        <div class="">
+            <h1><?php echo $this->escapeHtml($title); ?></h1>    
+        </div>
+        
+        <div class="label label-danger center-block">
+            <strong>
+                <?php echo $this->translate('Are you sure that you want to delete'); ?>
+               '<?php echo $this->escapeHtml($album->title); ?>' <?php echo $this->translate('by'); ?>
+               '<?php echo $this->escapeHtml($album->artist); ?>'?
+            </strong>
+        </div>    
+        <?php
  $url = $this->url('album', array(
      'action' => 'delete',
      'id'     => $this->id,
  ));
  ?>
- <form action="<?php echo $url; ?>" method="post">
- <div>
-     <input type="hidden" name="id" value="<?php echo (int) $album->id; ?>" />
-     <input type="submit" name="del" value="Yes" />
-     <input type="submit" name="del" value="No" />
- </div>
- </form>
+        
+        <div class="form-group">
+            <form action="<?php echo $url; ?>" method="post">
+                <div>
+                    <input type="hidden" name="id" value="<?php echo (int) $album->id; ?>" />
+                    <input type="submit" class="btn btn-danger" name="del" value="<?php echo $this->translate('Yes'); ?>" />
+                    <input type="submit" name="del" class="btn btn-warning" value="<?php echo $this->translate('No'); ?>" />
+                </div>
+            </form>
+        </div>
+            
+        
+    </div>
+</div>
+
+
+ 
+ 
  
 
 

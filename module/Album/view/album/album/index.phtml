@@ -32,12 +32,13 @@
                                     <a id="btn_edit" class="btn btn-primary" href="<?php echo $this->url('album',
                                                 array('action'=>'edit', 'id' => $album->id));?>"> <?php echo $this->translate('Edit');?> </a>
 
-                                    <a id="btn_del" class="btn btn-danger" href="<?php echo $this->url('album',
+                                    <a class="btn btn-danger" href="<?php echo $this->url('album',
                                                 array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
                                 </div>    
-                                <div class=" row portfolio-item">
-                                    <?php echo 'Musica: ',$this->escapeHtml($album->title);?>
-                                    <?php echo 'Artista: ',$this->escapeHtml($album->artist);?>
+                                <div class=" row portfolio-item ">
+                                    <h6><?php echo 'Album: '.$this->escapeHtml($album->title);?></h6>
+                                    <h6><?php echo 'Artista: ',$this->escapeHtml($album->artist);?></h6>
+                                    
                                     
                                     <a class="fancybox" href="<?php echo $album->file;?>">
                                             <img src="<?php echo $album->file;?>" >

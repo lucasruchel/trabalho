@@ -6,6 +6,6 @@ $(document).ready(function() {
     		}
     	}
     });
+    
 });
-
 
