@@ -36,9 +36,9 @@
                                        <a class="btn btn-danger" href="<?php echo $this->url('album',
                                                    array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
                                    </div>    
-                                   <div class=" row portfolio-item ">
-                                       <h6><?php echo 'Album: '.$this->escapeHtml($album->title);?></h6>
-                                       <h6><?php echo 'Artista: ',$this->escapeHtml($album->artist);?></h6>
+                                   <div class=" row portfolio-item " >
+                                       <span class="label"><?php echo 'Album: '.$this->escapeHtml($album->title);?></span>
+                                       <span class="label"><?php echo 'Artista: ',$this->escapeHtml($album->artist);?></span>
 
 
                                        <a class="fancybox" href="<?php echo $album->file;?>">

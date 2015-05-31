@@ -17,9 +17,10 @@ class AlbumForm extends Form{
         
         $this->add(array(
             'name' => 'title',
-            'type' => 'text', 
+            'type' => 'text',
             'options' => array(
                 'label' => 'Title',
+             
             ),'attributes'=>array(
                     'class' => 'form-control',)
         ));

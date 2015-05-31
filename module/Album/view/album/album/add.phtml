@@ -27,7 +27,7 @@
         }
             else
         {
-            echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+            echo '<label class="form-label" for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
             echo $this->formElement($element);
         }
         echo $this->formElementErrors($element,array('message' => $this->translate("errormessage")));

@@ -36,13 +36,13 @@
                 
                 echo '<span class="btn btn-success fileinput-button">';
                 echo '<i class="glyphicon glyphicon-plus"></i>';
-                echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+                echo '<label  for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
                 echo $this->formElement($element);
                 echo '</span>';
         }
             else
         {
-            echo '<label for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
+            echo '<label class="form-label" for="'.$element->getAttribute('name').'">'.$this->translate($element->getLabel()).'</label>';
             echo $this->formElement($element);
         }
 
