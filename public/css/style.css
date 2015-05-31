@@ -316,7 +316,10 @@ IPAD PORTRAIT (768x1024)
 #sticky-footer{
     padding-top: 50px;
 }
-
+.form-thumbnail{
+    max-width: 300px;
+    display: block;
+}
 
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome

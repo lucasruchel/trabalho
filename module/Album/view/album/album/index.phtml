@@ -21,36 +21,52 @@
         
     </div>
 </div>
- <table class="table">
-            
-                  <div id="menu-container">
-                    <div id="menu-1" class="homepage">
-                        <div class="row">     
-            <?php foreach ($albums as $album) : ?>
-                            <div class="col-md-4 col-sm-6 col-xs-12 portifolio">
-                                <div class="row">
-                                    <a id="btn_edit" class="btn btn-primary" href="<?php echo $this->url('album',
-                                                array('action'=>'edit', 'id' => $album->id));?>"> <?php echo $this->translate('Edit');?> </a>
+<div class="container">
+    <div class="table">
 
-                                    <a class="btn btn-danger" href="<?php echo $this->url('album',
-                                                array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
-                                </div>    
-                                <div class=" row portfolio-item ">
-                                    <h6><?php echo 'Album: '.$this->escapeHtml($album->title);?></h6>
-                                    <h6><?php echo 'Artista: ',$this->escapeHtml($album->artist);?></h6>
-                                    
-                                    
-                                    <a class="fancybox" href="<?php echo $album->file;?>">
-                                            <img src="<?php echo $album->file;?>" >
-                                    </a>
+                     <div id="menu-container">
+                       <div id="menu-1" class="homepage">
+                           <div class="row">     
+               <?php foreach ($paginator as $album) : ?>
+                               <div class="col-md-4 col-sm-6 col-xs-12 portifolio">
+                                   <div class="row">
+                                       <a id="btn_edit" class="btn btn-primary" href="<?php echo $this->url('album',
+                                                   array('action'=>'edit', 'id' => $album->id));?>"> <?php echo $this->translate('Edit');?> </a>
+
+                                       <a class="btn btn-danger" href="<?php echo $this->url('album',
+                                                   array('action'=>'delete', 'id' => $album->id));?>"> <?php echo $this->translate('Delete');?> </a>
+                                   </div>    
+                                   <div class=" row portfolio-item ">
+                                       <h6><?php echo 'Album: '.$this->escapeHtml($album->title);?></h6>
+                                       <h6><?php echo 'Artista: ',$this->escapeHtml($album->artist);?></h6>
+
+
+                                       <a class="fancybox" href="<?php echo $album->file;?>">
+                                               <img src="<?php echo $album->file;?>" >
+                                       </a>
+                                   </div> 
+
+                   </div>
+
+               <?php endforeach; ?>
                                 </div> 
-                            
-                </div>
-                       
-            <?php endforeach; ?>
-                             </div> 
-                    </div> 
-                </div>
-            
-                    
- </table>
+                       </div> 
+                   </div>
+
+             <?php
+                // add at the end of the file after the table
+                echo $this->paginationControl(
+                    // the paginator object
+                    $this->paginator,
+                    // the scrolling style
+                    'Sliding',
+                    // the partial to use to render the control
+                    'partial/paginator.phtml',
+                    // the route to link to when a user clicks a control link
+                    array(
+                        'route' => 'album'
+                    )
+                );
+                ?>
+    </div>
+</div>

@@ -5,10 +5,6 @@ return array(
          'host'      => 'localhost',
          'port'      => '5432',
          'dbname'    => 'album',
-       
-         
-         //'driver' => 'Pdo-Sqlite',
-         //'database' => '/var/db/album.db',
      ),
      'service_manager' => array(
          'factories' => array(

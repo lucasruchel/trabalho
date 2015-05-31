@@ -4,17 +4,15 @@
  $title = $this->translate('Delete album');
  $this->headTitle($title);
  ?>
-<div class="page-header">
-    <div>
-        
-    </div>
+<div class="container">
+    
     
     <div class="jumbotron ">
         <div class="">
             <h1><?php echo $this->escapeHtml($title); ?></h1>    
         </div>
         
-        <div class="label label-danger center-block">
+        <div class="label label-primary center-block">
             <strong>
                 <?php echo $this->translate('Are you sure that you want to delete'); ?>
                '<?php echo $this->escapeHtml($album->title); ?>' <?php echo $this->translate('by'); ?>
@@ -22,24 +20,26 @@
             </strong>
         </div>    
         <?php
- $url = $this->url('album', array(
-     'action' => 'delete',
-     'id'     => $this->id,
- ));
- ?>
-        
+            $url = $this->url('album', array(
+                'action' => 'delete',
+                'id'     => $this->id,
+            ));
+        ?>
+        </div>
+        <hr />
         <div class="form-group">
             <form action="<?php echo $url; ?>" method="post">
                 <div>
+                    
                     <input type="hidden" name="id" value="<?php echo (int) $album->id; ?>" />
-                    <input type="submit" class="btn btn-danger" name="del" value="<?php echo $this->translate('Yes'); ?>" />
-                    <input type="submit" name="del" class="btn btn-warning" value="<?php echo $this->translate('No'); ?>" />
+                    <input type="submit" class="btn btn-danger pull-left" name="del" value="Yes" />
+                    <input type="submit" name="del" class="btn btn-warning pull-right" value="No" />
                 </div>
             </form>
         </div>
             
         
-    </div>
+    
 </div>
 
 

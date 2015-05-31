@@ -9,6 +9,16 @@ return array(
 
      'router' => array(
          'routes' => array(
+             'home' => array(
+                 'type' => 'Literal',
+                 'options' => array(
+                     'route' => '/',
+                     'defaults' => array(
+                         'controller' => 'Album\Controller\Album',
+                         'action'     => 'index',
+                     ),
+                 ),
+             ),
              'album' => array(
                  'type'    => 'segment',
                  'options' => array(
@@ -16,7 +26,7 @@ return array(
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
-                         'img'  => 'img',
+                   
                      ),
                      'defaults' => array(
                          'controller' => 'Album\Controller\Album',
